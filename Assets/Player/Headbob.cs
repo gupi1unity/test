@@ -32,8 +32,6 @@ public class Headbob
 
             float sin = Mathf.Sin(_timer) * _bobAmplitude;
 
-            Debug.Log(sin);
-
             Vector3 headbobVector = new Vector3(0, sin, 0);
 
             _cameraPivot.localPosition = new Vector3(_cameraPivot.localPosition.x, _cameraPivot.localPosition.y + headbobVector.y, _cameraPivot.localPosition.z);
