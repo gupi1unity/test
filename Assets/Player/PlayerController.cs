@@ -35,7 +35,7 @@ public class PlayerController : MonoBehaviour
         Cursor.visible = false;
 
         _gravity = new Gravity(_characterController, gameObject.transform, _gravityModifier);
-        _mover = new Mover(_speed, _characterController, _cameraPivot, _gravity);
+        _mover = new Mover(_speed, _characterController, transform, _gravity);
         _rotator = new Rotator(_speedX, _speedY, _cameraPivot, _playerTransform);
         _raycastCamera = new RaycastCamera(_camera);
         _raycastGround = new RaycastGround(_groundRayDistance, transform, _groundMask);

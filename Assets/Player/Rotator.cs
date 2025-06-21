@@ -28,9 +28,8 @@ public class Rotator
 
         _xRotation -= vertical;
         _xRotation = Mathf.Clamp(_xRotation, -90, 90);
-        _yRotation += horizontal;
 
-        _cameraPivot.transform.localRotation = Quaternion.Euler(_xRotation, _yRotation, 0);
+        _cameraPivot.transform.localRotation = Quaternion.Euler(_xRotation, 0, 0);
         _playerTransform.transform.rotation *= Quaternion.Euler(0, horizontal, 0);
     }
 }
