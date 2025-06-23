@@ -4,11 +4,20 @@ using UnityEngine;
 
 public class TestInteractable : MonoBehaviour, IInteractable
 {
+    [SerializeField] private Material material;
+
     public bool IsInteractive { get; }
 
     public void Interact()
     {
-        Debug.Log($"Interacted with {gameObject.name}");
+        if (material.color == Color.red)
+        {
+            material.color = Color.green;
+        }
+        else if (material.color == Color.green)
+        {
+            material.color = Color.red;
+        }
     }
 
     public void OnView()

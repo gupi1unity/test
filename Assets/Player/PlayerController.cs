@@ -48,8 +48,6 @@ public class PlayerController : MonoBehaviour
         _rotator.CalculateRotationDirection();
         _headbob.Update();
 
-        Debug.Log(_raycastGround.IsGrounded());
-
         if (_raycastCamera.CreateRay<IInteractable>(_cameraRayDistance, out IInteractable findedObject))
         {
             if (Input.GetKeyDown(KeyCode.Mouse0))
