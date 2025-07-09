@@ -6,16 +6,14 @@ using Zenject;
 
 public class GameplayBootstrap : SceneBootstrap
 {
-    [Inject] private Mover _mover;
-    [Inject] private Rotator _rotator;
-    [Inject] private Gravity _gravity;
-    [Inject] private RaycastCamera _raycastCamera;
-    [Inject] private RaycastGround _raycastGround;
-    [Inject] private Headbob _headbob;
-    [Inject] private PlayerController _playerController;
+    [Inject] private DiContainer _container;
 
     public override IEnumerator Run(IInputSceneArgs inputSceneArgs)
     {
+        ResourcesAssetLoader resourcesAssetLoader = _container.Resolve<ResourcesAssetLoader>();
+
+        PlayerController playerController = resourcesAssetLoader.LoadResource<PlayerController>("Player");
+
         yield return new WaitForSeconds(1f);
     }
 }

@@ -31,7 +31,6 @@ public class PlayerInstaller : MonoInstaller
         Container.Bind<RaycastCamera>().AsSingle().WithArguments(_camera, _cameraRayDistance);
         Container.Bind<RaycastGround>().AsSingle().WithArguments(_groundRayDistance, transform, _groundMask);
         Container.Bind<Headbob>().AsSingle().WithArguments(_cameraPivot, _characterController, _bobFrequency, _bobAmplitude, Container.Resolve<RaycastGround>());
-        Container.Bind<PlayerController>().FromComponentOnRoot().AsSingle();
 
         Debug.Log("PlayerInstaller initialized");
     }

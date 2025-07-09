@@ -5,17 +5,25 @@ using Zenject;
 
 public class PlayerController : MonoBehaviour
 {
-    [Inject] private Mover _mover;
-    [Inject] private Rotator _rotator;
-    [Inject] private RaycastCamera _raycastCamera;
-    [Inject] private RaycastGround _raycastGround;
-    [Inject] private Headbob _headbob;
-    [Inject] private Gravity _gravity;
+    private Gravity _gravity;
+    private Mover _mover;
+    private Rotator _rotator;
+    private RaycastCamera _raycastCamera;
+    private RaycastGround _raycastGround;
+    private Headbob _headbob;
 
-    private void Awake()
+    [Inject]
+    public void Initialize(Gravity gravity, Mover mover, Rotator rotator, RaycastCamera raycastCamera, RaycastGround raycastGround, Headbob headbob)
     {
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
+
+        _gravity = gravity;
+        _mover = mover;
+        _rotator = rotator;
+        _raycastCamera = raycastCamera;
+        _raycastGround = raycastGround;
+        _headbob = headbob;
     }
 
     public void Update()
