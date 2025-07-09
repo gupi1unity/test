@@ -5,5 +5,15 @@ using Zenject;
 
 public class GameplaySceneInstaller : MonoInstaller
 {
+    [SerializeField] private GameObject _playerPrefab;
 
+    public override void InstallBindings()
+    {
+
+    }
+
+    private void InstallPlayerBindings(DiContainer subContainer)
+    {
+
+    }
 }
