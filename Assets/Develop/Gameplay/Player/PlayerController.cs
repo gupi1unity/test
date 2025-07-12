@@ -12,12 +12,18 @@ public class PlayerController : MonoBehaviour
     private RaycastGround _raycastGround;
     private Headbob _headbob;
 
+    private float _speedX;
+    private float _speedY;
+
+    private Transform _cameraPivot;
+    private Transform _playerTransform;
+
+    private float _xRotation;
+    private float _yRotation;
+
     [Inject]
     public void Initialize(Gravity gravity, Mover mover, Rotator rotator, RaycastCamera raycastCamera, RaycastGround raycastGround, Headbob headbob)
     {
-        Cursor.lockState = CursorLockMode.Locked;
-        Cursor.visible = false;
-
         _gravity = gravity;
         _mover = mover;
         _rotator = rotator;
@@ -39,5 +45,17 @@ public class PlayerController : MonoBehaviour
                 findedObject.Interact();
             }
         }
+    }
+
+    private void Rotate()
+    {
+        float horizontal = Input.GetAxisRaw("Mouse X") * Time.deltaTime * _speedX;
+        float vertical = Input.GetAxisRaw("Mouse Y") * Time.deltaTime * _speedY;
+
+        _xRotation -= vertical;
+        _xRotation = Mathf.Clamp(_xRotation, -90, 90);
+
+        _cameraPivot.transform.localRotation = Quaternion.Euler(_xRotation, 0, 0);
+        _playerTransform.transform.rotation *= Quaternion.Euler(0, horizontal, 0);
     }
 }

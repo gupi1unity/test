@@ -10173,6 +10173,37 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 946156158}
   m_SourcePrefab: {fileID: 100100000, guid: fa9d393c8050bc84b9ec3087ef954e53, type: 3}
+--- !u!1 &401435289
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 401435290}
+  m_Layer: 0
+  m_Name: StartPosition
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &401435290
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 401435289}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -155, y: 1, z: -248}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &405567039
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -21866,6 +21897,9 @@ MonoBehaviour:
   _bobFrequency: 10
   _bobAmplitude: 0.0015
   _gravityModifier: 2
+  _playerPrefab: {fileID: 6211948754329213556, guid: 08eb25279949c604fa6855ff794b8f39,
+    type: 3}
+  _startPosition: {fileID: 401435290}
 --- !u!1001 &928518971
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -83761,3 +83795,4 @@ SceneRoots:
   - {fileID: 215436453}
   - {fileID: 980204180}
   - {fileID: 2000837697}
+  - {fileID: 401435290}

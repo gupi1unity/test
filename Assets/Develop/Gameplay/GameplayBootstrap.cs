@@ -6,14 +6,10 @@ using Zenject;
 
 public class GameplayBootstrap : SceneBootstrap
 {
-    [Inject] private DiContainer _container;
-
     public override IEnumerator Run(IInputSceneArgs inputSceneArgs)
     {
-        ResourcesAssetLoader resourcesAssetLoader = _container.Resolve<ResourcesAssetLoader>();
+        Debug.Log("GameplayBootstrap");
 
-        PlayerController playerController = resourcesAssetLoader.LoadResource<PlayerController>("Player");
-
-        yield return new WaitForSeconds(1f);
+        yield return null;
     }
 }

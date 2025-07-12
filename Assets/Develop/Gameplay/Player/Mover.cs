@@ -4,20 +4,18 @@ using UnityEngine;
 
 public class Mover
 {
-    private CharacterController _characterController;
     private float _speed;
     private Transform _playerTransform;
     private Gravity _gravity;
 
-    public Mover(float speed, CharacterController characterController, Transform cameraPivot, Gravity gravity)
+    public Mover(float speed, Transform playerTransform, Gravity gravity)
     {
         _speed = speed;
-        _characterController = characterController;
-        _playerTransform = cameraPivot;
+        _playerTransform = playerTransform;
         _gravity = gravity;
     }
 
-    public void CalculateMoveDirection()
+    public Vector3 CalculateMoveDirection()
     {
         float horizontal = Input.GetAxisRaw("Horizontal");
         float vertical = Input.GetAxisRaw("Vertical");
@@ -27,6 +25,6 @@ public class Mover
         Vector3 moveDirection = _playerTransform.TransformDirection(Vector3.forward) * inputVector.z + _playerTransform.TransformDirection(Vector3.right) * inputVector.x;
         Vector3 moveDirectionNormalized = new Vector3(moveDirection.x, 0, moveDirection.z).normalized * _speed + _gravity.CalculateGravity();
 
-        _characterController.Move(moveDirectionNormalized * Time.deltaTime);
+        return moveDirectionNormalized * Time.deltaTime;
     }
 }
